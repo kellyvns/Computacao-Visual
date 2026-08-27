@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="ligar()">Ativar</button><br><br>
+
+<canvas id="c" width="300" height="200" style="border:1px solid"></canvas>
+
+<script>
+let canvas = document.getElementById("c");
+let ctx = canvas.getContext("2d");
+
+let cont = 0;
+let ativo = false;
+
+function ligar() {
+    ativo = true;
+}
+
+canvas.onclick = function() {
+    if (ativo == false) return;
+
+    cont++;
+    ctx.clearRect(0,0,300,200);
+    ctx.fillText("Voce clicou " + cont + " vezes", 50, 100);
+}
+</script>
+
+</body>
+</html>

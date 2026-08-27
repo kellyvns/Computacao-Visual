@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canvas" width="500" height="400" style="border:1px solid black"></canvas>
+
+<script>
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+ctx.save();
+
+// mover
+ctx.translate(200, 150);
+
+// girar
+ctx.rotate(Math.PI / 4);
+
+// aumentar
+ctx.scale(1.5, 1.5);
+
+// desenhar quadrado
+ctx.fillStyle = "blue";
+ctx.fillRect(-25, -25, 50, 50);
+
+ctx.restore();
+</script>
+</body>
+</html>

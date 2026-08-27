@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Vel <input type="range" id="v" min="1" max="5"><br>
+Cor <input type="color" id="cor"><br>
+
+<canvas id="c" width="300" height="200" style="border:1px solid"></canvas>
+
+<script>
+let c = document.getElementById("c");
+let ctx = c.getContext("2d");
+
+let x = 0;
+
+function loop() {
+    ctx.clearRect(0,0,300,200);
+
+    ctx.fillStyle = document.getElementById("cor").value;
+    ctx.fillRect(x, 80, 40, 40);
+
+    x += parseInt(document.getElementById("v").value);
+
+    if (x > 300) x = 0;
+
+    requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+
+</body>
+</html>

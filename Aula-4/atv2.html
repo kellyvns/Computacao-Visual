@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+R <input type="range" id="r" min="0" max="255"><br>
+G <input type="range" id="g" min="0" max="255"><br>
+B <input type="range" id="b" min="0" max="255"><br><br>
+
+<canvas id="c" width="300" height="200" style="border:1px solid"></canvas>
+
+<script>
+let c = document.getElementById("c");
+let ctx = c.getContext("2d");
+
+function desenhar() {
+    let r = document.getElementById("r").value;
+    let g = document.getElementById("g").value;
+    let b = document.getElementById("b").value;
+
+    ctx.clearRect(0,0,300,200);
+    ctx.fillStyle = "rgb("+r+","+g+","+b+")";
+    ctx.fillRect(80,60,140,80);
+}
+
+document.getElementById("r").oninput = desenhar;
+document.getElementById("g").oninput = desenhar;
+document.getElementById("b").oninput = desenhar;
+</script>
+
+</body>
+</html>

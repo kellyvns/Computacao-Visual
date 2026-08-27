@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="c" width="300" height="200" style="border:1px solid"></canvas>
+
+<script>
+let c = document.getElementById("c");
+let ctx = c.getContext("2d");
+
+let desenhando = false;
+
+c.onmousedown = function() {
+    desenhando = true;
+}
+
+c.onmouseup = function() {
+    desenhando = false;
+}
+
+c.onmousemove = function(e) {
+    if (desenhando) {
+        ctx.fillRect(e.offsetX, e.offsetY, 3, 3);
+    }
+}
+</script>
+
+</body>
+</html>
