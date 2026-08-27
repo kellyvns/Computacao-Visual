@@ -1,0 +1,37 @@
+<canvas id="canvas" width="800" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let bola = {
+    x: 400,
+    y: 50,
+    velocidadeY: 0,
+    raio: 20
+};
+
+let gravidade = 0.5;
+
+function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.arc(bola.x, bola.y, bola.raio, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Gravidade
+    bola.velocidadeY += gravidade;
+    bola.y += bola.velocidadeY;
+
+    // Colisão com o chão
+    if (bola.y + bola.raio > canvas.height) {
+        bola.y = canvas.height - bola.raio;
+        bola.velocidadeY *= -0.8; 
+    }
+
+    requestAnimationFrame(animar);
+}
+
+animar();
+</script>

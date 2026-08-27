@@ -1,0 +1,24 @@
+<canvas id="canvas" width="800" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let x = 0;
+
+function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillRect(x, 150, 50, 50);
+
+    x += 2;
+
+    if (x > canvas.width) {
+        x = 0;
+    }
+
+    requestAnimationFrame(animar);
+}
+
+animar();
+</script>
